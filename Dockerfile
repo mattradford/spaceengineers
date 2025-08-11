@@ -17,12 +17,12 @@ RUN \
   dpkg --add-architecture i386 && \
   apt-get -qq -y update && \
   apt-get upgrade -y -qq && \
-  apt-get install -y -qq software-properties-common curl gnupg2 wget && \
+  apt-get install -y -qq curl gnupg2 wget && \
   # add repository keys
   mkdir -pm755 /etc/apt/keyrings && \
   wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
   # add repositories
-  echo "deb http://ftp.us.debian.org/debian trixie main non-free" > /etc/apt/sources.list.d/non-free.list && \
+  echo "deb http://ftp.us.debian.org/debian trixie main contrib non-free" > /etc/apt/sources.list.d/non-free.list && \
   wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/trixie/winehq-trixie.sources
 RUN \
   apt-get update -qq && \
