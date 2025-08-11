@@ -1,4 +1,4 @@
-FROM debian:bookworm-20241016-slim
+FROM debian:trixie-slim
 
 WORKDIR /root
 
@@ -6,7 +6,7 @@ WORKDIR /root
 # never env DEBIAN_FRONTEND=noninteractive !!
 ARG DEBIAN_FRONTEND=noninteractive
 ARG WINEBRANCH=staging
-ARG WINEVERSION=9.20~bookworm-1
+ARG WINEVERSION=10.12~trixie-1
 
 ENV WINEARCH=win64
 ENV WINEDEBUG=-all
@@ -22,8 +22,8 @@ RUN \
   mkdir -pm755 /etc/apt/keyrings && \
   wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key && \
   # add repositories
-  echo "deb http://ftp.us.debian.org/debian bookworm main non-free" > /etc/apt/sources.list.d/non-free.list && \
-  wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/bookworm/winehq-bookworm.sources
+  echo "deb http://ftp.us.debian.org/debian trixie main non-free" > /etc/apt/sources.list.d/non-free.list && \
+  wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/debian/dists/trixie/winehq-trixie.sources
 RUN \
   apt-get update -qq && \
   echo steam steam/question select "I AGREE" | debconf-set-selections && \
