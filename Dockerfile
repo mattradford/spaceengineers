@@ -50,8 +50,7 @@ RUN \
   rm -f /root/winetricks.sh && \
   # Remove stuff we do not need anymore to reduce docker size
   apt-get remove -qq -y \
-  gnupg2 \
-  software-properties-common && \
+  gnupg2 && \
   apt-get autoremove -qq -y && \
   apt-get -qq clean autoclean && \
   rm -rf /var/lib/{apt,dpkg,cache,log}/
