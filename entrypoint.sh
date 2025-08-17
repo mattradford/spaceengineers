@@ -1,5 +1,6 @@
 #!/bin/bash
 # VARIABLES
+STEAMWORKS_DIR="/appdata/steamworks-common"
 GAME_DIR="/appdata/space-engineers/SpaceEngineersDedicated"
 INSTANCES_DIR="/appdata/space-engineers/instances"
 PLUGIN_DIR="/appdata/space-engineers/plugins"
@@ -8,6 +9,10 @@ INSTANCE_IP=$(hostname -I | sed "s= ==g")
 
 
 echo "-------------------------------INSTALL & UPDATE------------------------------"
+# Steamworks Common Redistributables
+/usr/games/steamcmd +force_install_dir ${STEAMWORKS_DIR} +login anonymous +@sSteamCmdForcePlatformType windows +app_update 228980 +quit
+
+# Space Engineers Dedicated Server
 /usr/games/steamcmd +force_install_dir ${GAME_DIR} +login anonymous +@sSteamCmdForcePlatformType windows +app_update 298740 +quit
 
 echo "---------------------------------UPDATE CONFIG-------------------------------"
