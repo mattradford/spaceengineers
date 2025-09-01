@@ -9,9 +9,6 @@ INSTANCE_IP=$(hostname -I | sed "s= ==g")
 
 
 echo "-------------------------------INSTALL & UPDATE------------------------------"
-# Steamworks Common Redistributables
-/usr/games/steamcmd +force_install_dir ${STEAMWORKS_DIR} +login anonymous +@sSteamCmdForcePlatformType windows +app_update 228980 +quit
-
 # Space Engineers Dedicated Server
 /usr/games/steamcmd +force_install_dir ${GAME_DIR} +login anonymous +@sSteamCmdForcePlatformType windows +app_update 298740 +quit
 
