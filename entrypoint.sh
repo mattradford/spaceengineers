@@ -1,6 +1,5 @@
 #!/bin/bash
 # VARIABLES
-STEAMWORKS_DIR="/appdata/steamworks-common"
 GAME_DIR="/appdata/space-engineers/SpaceEngineersDedicated"
 INSTANCES_DIR="/appdata/space-engineers/instances"
 PLUGIN_DIR="/appdata/space-engineers/plugins"
